@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Martin Jones | Dragon Hill</title>
+<meta name="description" content="Martin Jones writes humorous speculative fiction, children's fiction and short stories: Dragon Hill, Best Eight, A Contradiction of Sandpipers and Secret Street.">
+<meta property="og:title" content="A homepage for Martin Jones, made by Sparsh Saini">
+<meta property="og:description" content="A homepage idea for Martin Jones and Dragon Hill, made by Sparsh Saini. Not his official site.">
+<meta property="og:image" content="https://sparshsainied-prog.github.io/martinjones/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%233f7a1f'/><path d='M16 5v17M16 22l-7 6M16 22l7 6M16 22v7' stroke='%23f3f1e4' stroke-width='3' fill='none' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Josefin+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/ground.jpg">
+<style>
+/* From the Dragon Hill cover: hill green and lime, chalk white, chalk-dust and name yellow, the black
+   brush lettering and thin black frame with dragon footprints at the corners. Kaushan Script stands in
+   for the cover's brush hand (the hero uses the cover's own lettering); Josefin Sans is the spaced
+   capitals on the backs of his other covers. */
+:root {
+  --hill: #3f7a1f;
+  --hill-2: #2c5a14;
+  --deep: #1d3d0d;
+  --lime: #a9c43a;
+  --chalk: #f3f1e4;
+  --gold: #f2c52b;
+  --ink: #1a1a14;
+  --navy: #141a3a;
+  --sky: #45b3e6;
+  --lemon: #f6e04a;
+  --display: "Kaushan Script", "Brush Script MT", cursive;
+  --text: "Josefin Sans", "Futura", sans-serif;
+  --gut: clamp(1rem, 5vw, 4rem);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--deep); color: var(--chalk); font-family: var(--text); font-size: 1.12rem; line-height: 1.6; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.05; margin: 0; }
+.caps { font-weight: 700; letter-spacing: .16em; text-transform: uppercase; font-size: .9rem; }
+
+.strip { position: relative; z-index: 30; background: var(--chalk); color: var(--ink); font-size: .92rem; text-align: center; padding: .45rem var(--gut); }
+
+/* ---------- nav: the dragon's footprints in the four corners, as on the cover ---------- */
+.prints a { position: fixed; z-index: 40; display: flex; align-items: center; gap: .35rem; text-decoration: none; color: var(--chalk); font-weight: 700; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; padding: .35rem; text-shadow: 0 1px 2px rgba(0,0,0,.6); }
+.prints svg { width: 20px; height: 22px; flex: none; }
+.prints a:hover, .prints a.on { color: var(--gold); }
+.prints .tl { left: 6px; top: 40px; } .prints .tr { right: 6px; top: 40px; flex-direction: row-reverse; }
+.prints .bl { left: 6px; bottom: 6px; } .prints .br { right: 6px; bottom: 6px; flex-direction: row-reverse; }
+.prints .tl svg, .prints .tr svg { transform: rotate(180deg); }
+@media (max-width: 899px) { .prints .tl, .prints .tr { top: 60px; } }
+
+/* ---------- the chalk dragon is cut into the hill ---------- */
+.hero { position: relative; height: 400vh; }
+.stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: radial-gradient(90% 70% at 50% 40%, var(--hill-2), var(--deep) 80%); }
+.cover { position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: min(100vw, calc((100svh - 130px) * .6656)); aspect-ratio: 1704 / 2560; overflow: hidden; }
+.world { position: absolute; inset: 0; transform-origin: 25% 80%; will-change: transform; }
+.pl { position: absolute; max-width: none; will-change: transform, opacity; }
+.ground { left: 0; top: 0; width: 100%; }
+.cut { position: absolute; overflow: hidden; transform-origin: 0 50%; will-change: transform; }
+.cutin { position: absolute; will-change: transform; }
+.body { left: 12.617%; top: 38.906%; width: 80.458%; }
+.dust { left: 12.735%; top: 40.195%; width: 77.817%; }
+.wing { left: 9.742%; top: 29.375%; width: 39.378%; transform-origin: 99.3% 71.3%; }
+.title { left: 8.568%; top: 3.516%; width: 84.448%; }
+.name { left: 53.462%; top: 68.828%; width: 35.27%; }
+.cap { position: absolute; left: var(--gut); right: var(--gut); top: calc(min(100vw, (100svh - 130px) * .6656) * 1.5023 + 12px); }
+.cap p { margin: 0; font-size: 1.05rem; line-height: 1.4; opacity: 0; will-change: opacity; }
+.cap p + p { position: absolute; left: 0; right: 0; top: 0; pointer-events: none; }
+.cap p.c1 { opacity: 1; }
+.cap p.live { pointer-events: auto; }
+.cap em { color: var(--gold); font-style: normal; }
+.btn { display: inline-block; margin-top: .55rem; font-family: var(--text); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: .88rem; text-decoration: none; color: var(--ink); background: var(--gold); padding: .62rem 1.1rem .5rem; border: 2px solid var(--ink); outline: 1px solid var(--gold); outline-offset: 2px; }
+.btn:hover { background: var(--chalk); }
+.btn.ghost { background: none; color: var(--chalk); border-color: var(--chalk); outline-color: transparent; }
+.btn.ghost:hover { background: var(--chalk); color: var(--ink); }
+@media (min-width: 900px) {
+  .cover { width: calc((100svh - 40px) * .6656); top: 20px; left: 57%; box-shadow: 0 30px 60px rgba(0,0,0,.45); }
+  .cap { left: var(--gut); right: auto; top: 50%; width: min(23rem, 26vw); transform: translateY(-50%); }
+  .cap p { font-size: 1.25rem; }
+}
+
+/* ---------- sections ---------- */
+section.book, section.shelf, section.writer, section.hill { padding: clamp(3.5rem, 9vw, 6.5rem) var(--gut); }
+h2 { font-size: clamp(2.6rem, 10vw, 4.6rem); }
+.lede { max-width: 40rem; margin: 1rem 0 0; font-size: 1.2rem; }
+
+.book { background: var(--hill) url(img/ground.jpg) center / cover; display: grid; gap: 2.2rem; }
+@media (min-width: 900px) { .book { grid-template-columns: minmax(0, 22rem) 1fr; gap: 5rem; align-items: center; } }
+.book img { width: min(100%, 20rem); box-shadow: 0 18px 40px rgba(0,0,0,.4); }
+.book h2 { color: var(--ink); }
+.book .panel { background: rgba(29, 61, 13, .82); padding: 1.4rem 1.5rem; max-width: 42rem; }
+.book .panel p { margin: .8rem 0 0; }
+.book .meta { color: var(--lime); }
+
+.shelf { background: var(--chalk); color: var(--ink); }
+.shelf h2 { color: var(--hill-2); }
+.wrap { display: grid; gap: 3.2rem; margin-top: 2.6rem; }
+.wb { display: grid; gap: 1.2rem; }
+@media (min-width: 900px) { .wb { grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: center; } .wb:nth-child(2) { grid-template-columns: 1fr 1.3fr; } .wb:nth-child(2) img { order: 2; } }
+.wb img { box-shadow: 0 10px 26px rgba(0,0,0,.2); }
+.wb h3 { font-size: clamp(2rem, 7vw, 2.8rem); }
+.wb .caps { margin: .3rem 0 0; color: #5f5a3a; }
+.wb p { margin: .7rem 0 0; max-width: 34rem; }
+.wb.sand h3 { color: var(--navy); } .wb.eight h3 { color: #1d7fb3; } .wb.street h3 { color: #c8312a; }
+.btn.dark { background: var(--ink); color: var(--chalk); outline-color: var(--ink); }
+.btn.dark:hover { background: var(--hill); }
+
+.writer { background: var(--deep); display: grid; gap: 2rem; }
+@media (min-width: 900px) { .writer { grid-template-columns: 1fr 1fr; gap: 5rem; } }
+.writer h2 { color: var(--gold); }
+.writer blockquote { margin: 1.2rem 0 0; font-size: 1.4rem; line-height: 1.4; font-style: italic; border-left: 3px solid var(--gold); padding-left: 1rem; }
+.writer ul { margin: 1.2rem 0 0; padding-left: 1.1rem; }
+.writer li { margin: .4rem 0; }
+.post { border: 2px solid var(--chalk); outline: 1px solid var(--chalk); outline-offset: 4px; padding: 1.3rem 1.4rem; align-self: start; }
+.post h3 { font-size: 1.9rem; color: var(--chalk); margin-top: .4rem; }
+.post p { margin: .7rem 0 0; }
+
+.hill { background: var(--hill-2) url(img/ground.jpg) center 70% / cover; text-align: center; }
+.hill .in { max-width: 44rem; margin: 0 auto; background: rgba(29, 61, 13, .84); padding: 2rem 1.5rem; border: 2px solid var(--ink); outline: 1px solid var(--chalk); outline-offset: -8px; }
+.hill h2 { color: var(--chalk); }
+.hill .t { font-family: var(--display); color: var(--gold); font-size: clamp(4.5rem, 22vw, 9rem); line-height: 1; margin: .6rem 0 .2rem; }
+.hill p { margin: .6rem auto 0; max-width: 34rem; }
+footer { background: var(--deep); color: #b9c4a8; text-align: center; font-size: .9rem; padding: 1rem var(--gut) 4rem; border-top: 1px solid rgba(243,241,228,.15); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero { height: auto; }
+  .stage { position: relative; height: 100svh; }
+}
+</style>
+</head>
+<body>
+<div class="strip">A homepage idea made by Sparsh Saini for Martin Jones. Not their official site.</div>
+<nav class="prints" aria-label="Sections">
+  <a class="tl" href="#book"><svg viewBox="0 0 20 22" aria-hidden="true"><path d="M10 2v13M10 15l-6 5M10 15l6 5M10 15v6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>Dragon Hill</a>
+  <a class="tr" href="#shelf"><svg viewBox="0 0 20 22" aria-hidden="true"><path d="M10 2v13M10 15l-6 5M10 15l6 5M10 15v6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>More books</a>
+  <a class="bl" href="#writer"><svg viewBox="0 0 20 22" aria-hidden="true"><path d="M10 2v13M10 15l-6 5M10 15l6 5M10 15v6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>The writer</a>
+  <a class="br" href="#hill"><svg viewBox="0 0 20 22" aria-hidden="true"><path d="M10 2v13M10 15l-6 5M10 15l6 5M10 15v6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>Table N25</a>
+</nav>
+
+<main>
+<section class="hero" id="top" aria-label="Dragon Hill">
+  <div class="stage">
+    <div class="cover">
+      <div class="world">
+        <img class="pl ground" src="img/ground.jpg" alt="" width="1704" height="2560">
+        <div class="cut"><div class="cutin">
+          <img class="pl dust" src="img/dust.webp" alt="" width="1326" height="1327">
+          <img class="pl body" src="img/body.webp" alt="" width="1371" height="1454">
+        </div></div>
+        <img class="pl wing" src="img/wing.webp" alt="" width="671" height="973">
+        <img class="pl title" src="img/title.webp" alt="Dragon Hill" width="1439" height="915">
+        <img class="pl name" src="img/name.webp" alt="Martin Jones" width="601" height="601">
+      </div>
+    </div>
+    <div class="cap">
+      <p class="c1">Tolkien’s son suggested that a real hill in Oxfordshire inspired Weathertop. <em>Dragon Hill.</em></p>
+      <p class="c2">George Trellis is at Dragon Hill when he realises that something is wrong.</p>
+      <p class="c3">A modern mythic journey, starting and ending at Dragon Hill.<br><a class="btn" href="https://www.amazon.co.uk/dp/B0DHZ4WLCH">Buy Dragon Hill</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <img src="img/dragonhill.jpg" alt="Dragon Hill by Martin Jones: a white chalk dragon on a green hill" width="560" height="841" loading="lazy">
+  <div class="panel">
+    <h2 style="color:var(--chalk)">Dragon Hill</h2>
+    <p>George Trellis, a young researcher and part-time teacher of fantasy literature, is at Dragon Hill when he realises that something is wrong. Scientists at the university, where he bumbles along in the English department, have developed a substance they call DRAGON, designed to counter the forces of breakdown and decay.</p>
+    <p>There are, however, unintended consequences. DRAGON interprets any variety in its vicinity as something bad and broken. An exhausted science professor gives DRAGON to George in a sealed container disguised as a pen, and tells him to keep it moving.</p>
+    <p class="meta">Ebook and paperback, 2024. 298 pages.</p>
+    <a class="btn" href="https://www.amazon.co.uk/dp/B0DHZ4WLCH">Buy on Amazon</a>
+  </div>
+</section>
+
+<section class="shelf" id="shelf">
+  <h2>Three more</h2>
+  <p class="lede">Glam rock in Victorian London, a rowing prince bound for Mars, and a girl who finds a secret world under her feet.</p>
+  <div class="wrap">
+    <article class="wb sand">
+      <img src="img/sandpipers.jpg" alt="The full wraparound cover of A Contradiction of Sandpipers" width="1400" height="998" loading="lazy">
+      <div>
+        <h3>A Contradiction of Sandpipers</h3>
+        <p class="caps">The secret history of glam rock in Victorian London</p>
+        <p>An attempt to capture the feeling of coming home after a mundane day of putting yet another brick in the wall, and then listening to the sort of music which makes you feel like you could jump right over the wall.</p>
+        <a class="btn dark" href="https://martinjoneswriter.com/a-contradiction-of-sandpipers/">More on the book</a>
+      </div>
+    </article>
+    <article class="wb eight">
+      <img src="img/besteight.jpg" alt="The full wraparound cover of Best Eight" width="1400" height="973" loading="lazy">
+      <div>
+        <h3>Best Eight</h3>
+        <p class="caps">Surely being King of one planet should be enough?</p>
+        <p>A King of Earth wants his grandson and heir to extend the monarchy to Mars. Could there be a place in the Oxford Blue Boat for a future prince who is quite possibly the worst rower at Oxford University?</p>
+        <a class="btn dark" href="https://martinjoneswriter.com/best-eight/">More on the book</a>
+      </div>
+    </article>
+    <article class="wb street">
+      <img src="img/secretstreet.jpg" alt="The full wraparound cover of Secret Street" width="1400" height="978" loading="lazy">
+      <div>
+        <h3>Secret Street</h3>
+        <p class="caps">For children: a billion years starts today</p>
+        <p>What happens if you’re too big for rabbit holes, or you own a faulty wardrobe which is solid at the back? Paris Winsian is one of these people and she is determined to do something about it.</p>
+        <a class="btn dark" href="http://www.amazon.com/Secret-Street-Martin-Jones-ebook/dp/B00DJS4OL6">Secret Street on Amazon</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="writer" id="writer">
+  <div>
+    <h2>Writing, and so on</h2>
+    <blockquote>Until the world catches up with the idea that I’m a writer, I work in a pharmacy.</blockquote>
+    <p class="lede">Martin writes humorous speculative fiction, children’s fiction and short stories.</p>
+    <ul>
+      <li>Winner, Writers’ Forum Magazine short story competition</li>
+      <li>Highly commended, Yeovil Literary Festival international short story competition</li>
+    </ul>
+  </div>
+  <article class="post">
+    <p class="caps">From the blog, 23 October 2026</p>
+    <h3>The Hopkins Manuscript by R.C. Sherriff</h3>
+    <p>A 1939 dystopian science fiction novel, the Moon on a collision course with Earth, and what an old story can still say once its science has gone out of date.</p>
+    <a class="btn ghost" href="https://martinjoneswriter.com/2026/10/23/the-hopkins-manuscript-by-r-c-sherriff-science-isnt-science-fiction/">Read the post</a>
+  </article>
+</section>
+
+<section class="hill" id="hill">
+  <div class="in">
+    <p class="caps">Oxford Indie Book Fair</p>
+    <h2>Come and find Martin</h2>
+    <div class="t">N25</div>
+    <p>Sunday 22 November 2026, 11am to 4.30pm, Oxford Examination Schools, High Street. Free to visit.</p>
+    <p>Dragon Hill itself is in Oxfordshire too, below the White Horse at Uffington, where the story starts and ends.</p>
+  </div>
+</section>
+</main>
+<footer>A mockup made by Sparsh Saini for Martin Jones. Not affiliated, not live.</footer>
+
+<script>
+(() => {
+  // the chalk dragon is cut into the hill: a window turned to the line of its body slides from the
+  // tail to the head, so the chalk appears along the dragon; then the wing fans open from its root,
+  // the camera settles on the whole cover and the brush title comes up
+  const hero = document.querySelector('.hero');
+  const q = s => hero.querySelector(s);
+  const cover = q('.cover'), world = q('.world'), cut = q('.cut'), cutin = q('.cutin');
+  const wing = q('.wing'), title = q('.title'), name = q('.name');
+  const caps = [q('.c1'), q('.c2'), q('.c3')];
+  const still = matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const io = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const ease = t => 1 - Math.pow(1 - t, 3);
+  // in cover pixels (1704 x 2560): the tail tip and the line to the head
+  const TX = 230, TY = 2342, ANG = Math.atan2(1050 - 2342, 1267 - 230) * 180 / Math.PI, LEN = 2400, HALF = 1900;
+  let k = 1;
+  function size() {
+    k = cover.getBoundingClientRect().width / 1704 || k;
+    Object.assign(cut.style, { left: TX * k + 'px', top: (TY - HALF) * k + 'px', width: LEN * k + 'px', height: 2 * HALF * k + 'px' });
+    Object.assign(cutin.style, { left: -TX * k + 'px', top: (HALF - TY) * k + 'px', width: 1704 * k + 'px', height: 2560 * k + 'px', transformOrigin: `${TX * k}px ${TY * k}px` });
+  }
+  let ticking = false;
+  function frame() {
+    ticking = false;
+    let p;
+    if (still.matches) p = 1;
+    else { const r = hero.getBoundingClientRect(); p = clamp(-r.top / (hero.offsetHeight - innerHeight)); }
+    const reveal = clamp((p - .02) / .44);                 // 0 at the tail, 1 past the claws, even pace
+    const R = (140 + reveal * 1800) * k, t = R - LEN * k;
+    cut.style.transform = `rotate(${ANG.toFixed(3)}deg) translateX(${t.toFixed(2)}px)`;
+    cutin.style.transform = `translateX(${(-t).toFixed(2)}px) rotate(${(-ANG).toFixed(3)}deg)`;
+    const w = ease(clamp((p - .46) / .2));
+    wing.style.opacity = clamp((p - .45) / .05).toFixed(3);
+    wing.style.transform = `rotate(${(-38 * (1 - w)).toFixed(2)}deg) scale(${(.2 + .8 * w).toFixed(4)})`;
+    const cam = io(clamp((p - .58) / .2));
+    world.style.transform = `scale(${(1.5 - .5 * cam).toFixed(4)})`;
+    title.style.opacity = clamp((p - .74) / .1).toFixed(3);
+    name.style.opacity = clamp((p - .82) / .08).toFixed(3);
+    const k1 = clamp((p - .3) / .06), k2 = clamp((p - .8) / .06);
+    caps[0].style.opacity = (1 - k1).toFixed(3);
+    caps[1].style.opacity = Math.min(k1, 1 - k2).toFixed(3);
+    caps[2].style.opacity = k2.toFixed(3);
+    caps[2].classList.toggle('live', k2 > .5);
+  }
+  const go = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  size();
+  addEventListener('scroll', go, { passive: true });
+  addEventListener('resize', () => { size(); go(); });
+  still.addEventListener('change', go);
+  frame();
+
+  const links = [...document.querySelectorAll('.prints a')];
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) links.forEach(l => l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  ['book', 'shelf', 'writer', 'hill'].forEach(id => obs.observe(document.getElementById(id)));
+})();
+</script>
+</body>
+</html>
